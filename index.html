@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tab菜单</title>
+	<style type="text/css">
+	#div1{
+		width:300px;
+		height:300px;
+		position:relative;
+		border:1px solid #f00;
+	}
+	#bt1{
+		position:absolute;
+		top:0px;
+		left:0px;
+	}
+	#bt2{
+		position:absolute;
+		top:0px;
+		left:80px;
+	}
+	#bt3{
+		position:absolute;
+		top:0px;
+		left:160px;
+	}
+	#div1 div{
+		background-color:#090;
+		position: absolute;
+		width:250px;
+		height:250px;
+		top:30px;
+		left:30px;
+		display:none;
+	}
+	.active{
+		background-color:#128955;
+		color:#ffff;
+	}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var div1=document.getElementById("div1");
+			var inputs=document.getElementsByTagName("input");
+			var divs=div1.getElementsByTagName("div");
+			for(var i=0;i<inputs.length;i++){
+				inputs[i].onclick=function(){
+					for(var j=0;j<inputs.length;j++){
+						inputs[j].className="";
+						divs[j].style.display="none";
+					}
+					this.className="active";
+					if(-[1,]){
+						this.nextElementSibling.style.display="block";
+					}else{
+						this.nextSibling.nextSibling.style.display="block";
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<input  type="button" id="bt1" value="导航一">
+		<div style="display:block;">内容一</div>
+		<input  type="button" id="bt2" value="导航二">
+		<div>内容二</div>
+		<input  type="button" id="bt3" value="导航三">
+		<div>内容三</div>
+	</div>	
+</body>
+</html>
